@@ -1,132 +1,64 @@
-# mui-theme-config
+# Changelog
 
-## Biblioteca de Centralização de Configurações para MUI
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
-Nossa biblioteca foi desenvolvida com o objetivo de simplificar e centralizar a configuração do Material-UI. Ela oferece configurações personalizadas para acelerar o desenvolvimento de aplicativos com MUI. Aqui estão algumas das principais características:
+O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Configuração Simplificada: Com nossa biblioteca, você pode configurar facilmente as configurações globais do Material-UI em um único lugar, economizando tempo e esforço.
-- Personalização Flexível: Você pode personalizar facilmente os estilos e componentes do Material-UI de acordo com as necessidades.
-- Integração com Rollup e Storybook: A biblioteca foi construída com Rollup para facilitar a geração de pacotes otimizados e possui integração com o Storybook para desenvolvimento e documentação visual.
+## [Unreleased]
 
-## Instalação
+---
 
-Nossa biblioteca está guardada em um repositório dentro do bitbucket. Para começar primeiro você precisa garantir que sua chave ssh esteja configurada em sua máquina local, em seguida pode instalá-la facilmente via npm ou yarn:
+## [1.0.1] - 2023-10-16
 
-`$ npm install git+ssh://git@bitbucket.org:amicci/mui-theme-config.git#1.0.1`
-ou
-`$ yarn add git+ssh://git@bitbucket.org:amicci/mui-theme-config.git#1.0.1`
+### Added
 
-É importante usar o número da versão correto na hora da instalação, verifique no repositório a última versão disponível e substitua na url da biblioteca.
+- Adicionado o componente `MuiThemeConfig` para facilitar a configuração do tema do Material UI.
+- Adiciona cores personalizadas de acordo com a lista fornecida pelo designer.
 
-##Exemplo de Uso
-Aqui está um exemplo simples de como configurar seu aplicativo usando nossa biblioteca:
+## [1.0.2] - 2023-10-19
 
-    import { ThemeProvider } from '@mui/material/styles';
-    import { theme } from 'mui-theme-config';
+### Fixed
 
-    // Use o tema em seu aplicativo React
-    function App() {
-      return (
-    	<ThemeProvider theme={theme}>
-    	  {/* Seus componentes MUI aqui */}
-    	</ThemeProvider>
-      );
-    }
+- Limpeza de arquivos desnecessários.
 
-## Personalização
+### Changed
 
-Nossa biblioteca tem a seguinte estrutura:
+- Ajustes da documentação.
 
-![](./folder-structure.png)
+## [1.0.3] - 2023-10-30
 
-> Estrutura de pastas.
+### Added
 
-- dist _// arquivos distribuídos da biblioteca_
-- src
-    + components _// use esse diretório para componentes personalizados_
-    + scss _// configurações globais de estilo_
-    + stories _// aqui ficam os exemplos de uso dos seus componentes_
-    + theme _// personalizações do tema principal_
-- storybook-static _// build estatico dos stories_
+- Adiciona meios de customizar componentes do Material UI.
+- Customiza botões de link.
+- Customiza card e breadcumbs.
 
-### Passo a passo
+## [1.0.4] - 2023-11-07
 
-#### 1º Suas personalizações
+### Added
 
-Faça seus ajustes personalizados dentro do diretório `src/theme/` e centralize eles no arquivo `ThemeCustomization.tsx`:
+- Remove elevação padrão de Paper
 
-    import { createTheme } from "@mui/material/styles";
-    // importe a configuração personalizada
-    import Palette from "./palette";
+### Fixed
 
-    export const theme = createTheme({
-    // configure no tema
-      palette: Palette().palette,
-      spacing: 4,
-    });
+- Corrige ordem de injeção de css.
 
-#### 2º Opcional:
+## [1.0.5] - 2023-11-21
 
-Caso tenha criado/ajustado algum componente, e tenha criado seus stories, você pode ver como eles serão exibidos rodando o comando:
+### Added
 
-`$ npm run storybook`
+- Habilita ripple em botões.
+- Remove borda do ultimo element da Table.
 
-Para gerar os arquivos estáticos de seus stories, use o comando:
+### Fixed
 
-`$ npm run build-storybook`
+- Adiciona dependência de build de sass.
+- Modifica plugin de build de sass.
 
-Os arquivos gerados serão guardados dentro do diretório `sorybook-static`.
+### Changed
 
-#### 3º Build da biblioteca
-
-Após fazer todos os seus ajustes, use o próximo comando para gerar os arquivos da biblioteca:
-
-`$ npm run build`
-
-O Rollup vai empacotar os arquivos de forma instalável e var guardar-los no diretório `dist`.
-
-#### 4º Ajustes finais
-
-Antes de enviar seus ajustes para o diretório, abra o arquivo `package.json` na raiz do projeto e incremente o número da versão:
-
-    {
-    	"name": "mui-theme-config",
-    	"version": "1.0.1",
-    	...
-    }
-
-Assim que subir os arquivos, crie uma tag para o último commit feito, não esqueça de usar o mesmo número de versão que usou no `package.json`:
-
-`$ git tag -a 1.0.1 -m "descrição da tag"`
-
-Use o comando push para subir as alterações:
-
-`$ git push --tags`
-
-### Trazendo as alterações para sua aplicação
-
-Tendo finalizado as alterações na biblioteca, é hora de trazer esses ajustes para o seu sistema. Para isso, abra o `package.json` na raiz do seu projeto e coloque o número da versão dos seus ajustes:
-
-    {
-    	...
-    	"dependencies": {
-    		...
-    		"mui-theme-config": "git+ssh://git@bitbucket.org:amicci/mui-theme-config.git#1.0.1"
-    		...
-    	}
-    }
-
-Feito isso, rode o comando de instalação:
-
-`$ npm install`
-
-ou
-
-`$ yarn install`
-
-Por fim, todas as novas configurações devem ter sido carregadas na sua instalação local.
-
-## CHANGELOG
+- Ajuste das cores.
 
 ## [1.0.6] - 2023-12-19
 
@@ -137,6 +69,123 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 ### Fixed
 
 - Corrige mapeamento de tons de cinza.
+
+## [1.0.6-1] - 2023-12-22
+
+### Added
+
+- Adiciona CHANGELOG.md
+
+## [1.0.7] - 2024-01-19
+
+### Added
+
+- Typography da variante "subtitle1" com peso 500
+
+### Fixed
+
+- Corrige customização de Chip "info"
+
+## [1.0.8] - 2024-01-26
+
+### Added
+
+- Mapeamento de cores de "info"
+
+## [1.0.9] - 2024-03-07
+
+### Added
+
+- Componentes de cabeçalho de página e dialog de confirmação
+
+## [1.1.0] - 2024-03-07
+
+### Changed
+
+- Build da biblioteca refatorado, reduzindo tamanho do bundle e permitindo exportar componentes.
+- BREAKING CHANGE: Nesse update, `AmicciThemeProvider` já não é mais exportado por padrão. O import deste deve ser feito com duplas chaves: `{ AmicciThemeProvider }`. Preferencialmente, utilizar o export `theme`.
+
+## [1.1.1] - 2024-03-08
+
+### Added
+
+- Inclusão de novos componentes.
+  <DisplayDefault /> Componente utilizado para eventos de documentos exemplo: baixar documentos
+  <UploadComponent> - Utilizado para envio de arquivos em nossas aplicações
+
+## [1.1.2] - 2024-03-07
+
+### Changed
+
+- Correções nos componentes DisplayDefault e UploadComponent
+
+## [1.1.3] - 2024-03-12
+
+### Added
+
+- Inclusão de componentes
+  <ThreadComment> - Componente para exibição de componente de mensagem em thread
+  <ThreadBox> - Componente principal de thread contendo collapse de ThreadComment e Envio de mensagem
+  <ThreadTimeline> - Componente para exibição de timeline de threads finalizadas e ativas
+
+## [1.1.4] - 2024-03-12
+
+### Fixed
+
+- Adicionado o parâmetro fileSize em DisplayDefaultProps
+
+### Added
+
+- Inclusão de componente
+  <StatusBanner> - Componente para exibição de status de etapas
+
+## [1.1.5] - 2024-03-13
+
+### Fixed
+
+- Correção de parametros no componente <ThreadTimeline>
+- Ajustes de layout no componente <ThreadBox>
+- Correção do componente <UploadComponent>
+
+## [1.1.6] - 2024-03-14
+
+### Fixed
+
+- Ajuste de layout <ThreadTimeline>
+
+## [1.1.7] - 2024-03-18
+
+### Fixed
+
+- Ajuste de limpeza de campo ao enviar comentário
+- Acrescimo de loading ao enviar comentário
+- Exibição do campo "Adicionar comentário no primeiro envio"
+
+## [1.1.8] - 2024-03-20
+
+### Fixed
+
+- Aplicação de download e aba nova.
+
+## [1.1.9] - 2024-03-21
+
+### Fix
+
+- Chamdno função de onDownlaod do <DisplayDefault> via <ThreadTimeline>.
+- Ajuste de layout
+
+## [1.2.0] - 2024-03-27
+
+### Fix
+
+- Ajuste de espaçamento entre label "Adicione o comentário" e "TextField" no componente <UploadComponente>
+- Aplicado alteração de bgColor quando thread estiver desativada.
+
+## [1.2.1] - 2024-06-03
+
+### Added
+
+- Componente <FullPageDialog> para utilização rápida de modal full page com os componentes de cabeçalho já configurados
 
 ## [1.2.2] - 2024-07-04
 
@@ -216,6 +265,12 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 
 - Adiciona extensoes no RichTextReadOnly da Thread
 
+## [1.4.3] - 2024-08-14
+
+### Added
+
+- Adiciona extensoes no RichTextReadOnly da Thread
+
 ## [1.4.4] - 2024-08-14
 
 ### Added
@@ -234,7 +289,7 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 
 - Corrigir exibição do botão 'Visualizar histórico de Comentários'
 
-## [1.4.8 > 1.5.3] - 2024-08-22
+## [1.4.8 - 1.5.3] - 2024-08-22
 
 ### Fix
 
@@ -321,6 +376,12 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 ### Added
 
 - Adiciona componente de FileUpload
+
+## [1.8.2] - 2024-11-19
+
+### Added
+
+- Adiciona componente <FixedTableCell>
 
 ## [1.8.2 > 1.8.5] - 2024-11-19
 
@@ -458,19 +519,9 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 
 ## [2.0.7-test] - 2025-01-23
 
-- Ajusta o componente <RichTextEditorBox>
-
-## [2.0.8] - 2025-01-23
-
 - Remonta tag <RichTextEditorBox>
 
 ## [2.0.8-test] - 2025-01-23
-
-### Fix NewTopic e TreadBoxDocuments
-
-- Corrige o componente <NewTopic> e <TreadBoxDocuments>
-
-## [2.0.8-test-3] - 2025-01-23
 
 ### Fix NewTopic
 
@@ -555,6 +606,10 @@ Por fim, todas as novas configurações devem ter sido carregadas na sua instala
 - Corrige importação no componente <RichTextEditor>
 
 ## [2.2.2] - 2025-01-29
+
+### ?
+
+-
 
 ## [2.2.3] - 2025-01-29
 
